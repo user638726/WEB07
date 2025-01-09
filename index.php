@@ -1,4 +1,4 @@
-﻿﻿﻿<?php include_once "api/db.php"; ?>
+﻿﻿<?php include_once "api/db.php"; ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0047)? -->
@@ -9,7 +9,7 @@
     <title>影城</title>
     <link rel="stylesheet" href="css/css.css">
     <link href="css/s2.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
