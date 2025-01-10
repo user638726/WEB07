@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-size: 12px;
+    box-sizing: border-box;
 }
 
 .poster-block {
@@ -14,7 +15,6 @@
     width: 210px;
     height: 280px;
     margin: auto;
-    padding: 0px;
     position: relative;
 }
 
@@ -22,20 +22,94 @@
     width: 100%;
     height: 100px;
     margin: 10px auto;
-    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.poster {
+    position: absolute;
+    display: none;
+    text-align: center;
+}
+
+.poster img {
+    display: block;
+    width: 210px;
+    height: 250px;
+}
+
+.poster span {
+    font-size: 18px;
+}
+
+.left,
+.right {
+    width: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+.left {
+    border-right: 25px solid #eee;
+    border-left: 0;
+}
+
+.right {
+    border-left: 25px solid #eee;
+    border-right: 0;
+}
+
+.icons {
+    width: 320px;
+    display: flex;
+}
+
+.icon {
+    width: 80px;
+    height: 100px;
+    background: #ccc;
 }
 </style>
+
+
 <div class="half" style="vertical-align:top;">
     <h1>預告片介紹</h1>
     <div class="rb tab" style="width:95%;">
-        <div id="poster-block">
-            <ul class="lists">
-            </ul>
-            <ul class="controls">
-            </ul>
+        <div class="poster-block">
+            <div class="lists">
+                <?php 
+                    $posters=$Poster->all(['sh'=>1]," order by rank");
+                    foreach($posters as $idx => $poster):
+                ?>
+                <div class="poster">
+                    <img src="./upload/<?=$poster['img'];?>" alt="">
+                    <span><?=$poster['name'];?></span>
+                </div>
+                <?php
+                    endforeach;
+                ?>
+            </div>
+            <div class="controls">
+                <div class='left'></div>
+                <div class='icons'>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                    <div class="icon"></div>
+                </div>
+                <div class='right'></div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+$(".poster").eq(0).show();
+</script>
+
+
+
 <div class="half">
     <h1>院線片清單</h1>
     <?php 
