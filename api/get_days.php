@@ -11,4 +11,3 @@ for($i=$passDay;$i<3;$i++){
     echo $passDay.$date;
     echo "</option>";
 }
-?>
