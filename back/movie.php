@@ -36,11 +36,12 @@ function getMovies() {
 
         $(".del").on("click", function() {
             let id = $(this).data('id');
+            $movie = $(this).parents(".movie-item")
             $.post("./api/del.php", {
                 table: 'Movie',
                 id
             }, () => {
-                getMovies();
+                $($movie).remove();
             })
         })
     });
